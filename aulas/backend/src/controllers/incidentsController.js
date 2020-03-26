@@ -10,11 +10,12 @@ module.exports = {
         .join('ongs', 'ong_id', '=', 'incidents.ong_id')
         .limit(5)
         .offset((page - 1)*5)
-        .select(['incidents.*', 'ongs_name', 
-        'ongs_email',
-        'ongs_numero',
-        'ongs_city',
-        'ongs_uf']);
+        .select(['incidents.*',
+        'ongs.name', 
+        'ongs.email',
+        'ongs.numero',
+        'ongs.city',
+        'ongs.uf']);
 
         response.header('X-Total-Count', count ['count(*)'])
         return response.json(incidents);
